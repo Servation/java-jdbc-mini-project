@@ -19,7 +19,7 @@ public class ConnectionFactory {
             String username = bundle.getString("username");
             String password = bundle.getString("password");
             try {
-                connection = DriverManager.getConnection(url, username, password);
+                connection = DriverManager.getConnection(url, username, System.getenv(password));
             } catch (SQLException e) {
                 e.printStackTrace();
             }
