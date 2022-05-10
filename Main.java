@@ -61,6 +61,9 @@ public class Main {
                     System.out.println("Choose an id to look up: ");
                     int id = scan.nextInt();
                     Employee employee = dao.getEmployeeById(id);
+                    if (employee == null)
+                        System.out.println("Could not find employee with the id: " + id);
+                    else
                     System.out.println(employee);
                 }
                 case 6 -> {
@@ -68,15 +71,11 @@ public class Main {
                     System.out.println("Thank you");
                     System.out.println("Exiting...");
                     flag = false;
+                    ConnectionFactory.closeConnection();
                 }
                 default -> System.out.println("Choose between 1-6");
             }
         }
 
-//        Employee employee = new Employee();
-//        employee.setName("Mark");
-//        employee.setEmail("m@gmail.com");
-//
-//        dao.addEmployee(employee);
     }
 }

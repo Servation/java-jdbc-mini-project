@@ -26,6 +26,12 @@ public class ConnectionFactory {
         }
         return connection;
     }
+
+    public static void closeConnection() throws SQLException {
+        if (connection != null) {
+            connection.close();
+        }
+    }
 }
 
 
